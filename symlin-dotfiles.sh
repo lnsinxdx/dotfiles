@@ -5,6 +5,8 @@ FILES_TO_LINK=(
     ".zshrc"
     ".config/nvim"
 )
+# Automatically detect the directory where this script lives
+DOTFILES_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 echo "Creating symlinks from $DOTFILES_DIR to $HOME"
 
 for file in "${FILES_TO_LINK[@]}"; do 
