@@ -8,16 +8,16 @@ FILES_TO_LINK=(
 echo "Creating symlinks from $DOTFILES_DIR to $HOME"
 
 for file in "${FILES_TO_LINK[@]}"; do 
-    src="DOTFILES_DIR/$file"
-    dest="home/$file"
+    src="$DOTFILES_DIR/$file"
+    dest="$HOME/$file"
 
     # Create parent dir if needed.
-    mdkir -p "$dirname "$dest""
+    mkdir -p "($dirname "$dest")"
 
     # Remove existing file or link.
-    if [ -e "$dest" ] || [-L "-$dest" ]; then
+    if [ -e "$dest" ] || [-L "$dest" ]; then
         echo "Removing existing $dest"
-        rm -rf "dest"
+        rm -rf "$dest"
     fi
 
     echo "Linking $src -> $dest"
