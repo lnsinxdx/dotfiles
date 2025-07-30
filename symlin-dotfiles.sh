@@ -12,10 +12,10 @@ for file in "${FILES_TO_LINK[@]}"; do
     dest="$HOME/$file"
 
     # Create parent dir if needed.
-    mkdir -p "($dirname "$dest")"
+    mkdir -p "$(dirname "$dest")"
 
     # Remove existing file or link.
-    if [ -e "$dest" ] || [-L "$dest" ]; then
+    if [ -e "$dest" ] || [ -L "$dest" ]; then
         echo "Removing existing $dest"
         rm -rf "$dest"
     fi
